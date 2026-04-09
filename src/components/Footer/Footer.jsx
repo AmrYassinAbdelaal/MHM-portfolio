@@ -1,4 +1,4 @@
-import { personal, footer } from '../../data/content'
+import { footer } from '../../data/content'
 import styles from './Footer.module.css'
 
 export default function Footer() {
@@ -26,7 +26,7 @@ export default function Footer() {
           ))}
         </nav>
         <p className={styles.copy}>
-          &copy; {new Date().getFullYear()} {personal.name}. All rights reserved.
+          &copy; {new Date().getFullYear()} {footer.ownerName}. All rights reserved.
         </p>
       </div>
     </footer>

@@ -1,5 +1,7 @@
 import { personal } from '../../data/content'
 import Button from '../ui/Button'
+import portrait1 from '../../assets/portrait-1.jpeg'
+import portrait2 from '../../assets/portrait-2.jpeg'
 import styles from './Hero.module.css'
 
 export default function Hero() {
@@ -16,20 +18,41 @@ export default function Hero() {
     <section className={styles.hero} id="hero">
       <div className={styles.grid} />
       <div className={`container ${styles.content}`}>
-        <span className={styles.accentLine} />
-        <h1 className={styles.name}>{personal.name}</h1>
-        <p className={styles.title}>{personal.title}</p>
-        <p className={styles.tagline}>{personal.tagline}</p>
-        <div className={styles.cta}>
-          <Button variant="primary" href="#experience" onClick={e => scrollTo(e, 'experience')}>
-            View Experience
-          </Button>
-          <Button variant="outlineLight" href="#contact" onClick={e => scrollTo(e, 'contact')}>
-            Contact
-          </Button>
-          <Button variant="outlineLight" href="/resume.pdf" onClick={undefined}>
-            Download CV ↓
-          </Button>
+        <div className={styles.layout}>
+          <div className={styles.copy}>
+            <span className={styles.accentLine} />
+            <h1 className={styles.name}>{personal.name}</h1>
+            <p className={styles.title}>{personal.title}</p>
+            <p className={styles.tagline}>{personal.tagline}</p>
+            <div className={styles.cta}>
+              <Button variant="primary" href="#experience" onClick={e => scrollTo(e, 'experience')}>
+                View Experience
+              </Button>
+              <Button variant="outlineLight" href="#contact" onClick={e => scrollTo(e, 'contact')}>
+                Contact
+              </Button>
+              <Button variant="outlineLight" href="/resume.pdf" onClick={undefined}>
+                Download CV ↓
+              </Button>
+            </div>
+          </div>
+
+          <div className={styles.portraitShell} aria-hidden="true">
+            <div className={styles.portraitFrame}>
+              <img
+                src={portrait2}
+                alt=""
+                className={`${styles.portraitLayer} ${styles.portraitBack}`}
+                decoding="async"
+              />
+              <img
+                src={portrait1}
+                alt={personal.name}
+                className={`${styles.portraitLayer} ${styles.portraitFront}`}
+                decoding="async"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </section>

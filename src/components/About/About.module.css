@@ -5,10 +5,19 @@
   align-items: start;
 }
 
+.grid > :nth-child(1) {
+  justify-self: center;
+}
+
 @media (min-width: 768px) {
   .grid {
-    grid-template-columns: 3fr 2fr;
+    grid-template-columns: auto 3fr 2fr;
     gap: var(--space-4xl);
+    align-items: center;
+  }
+
+  .grid > :nth-child(1) {
+    justify-self: start;
   }
 }
 

@@ -1,0 +1,218 @@
+.portraitContainer {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+}
+
+.portraitFrame {
+  position: relative;
+  width: 100%;
+  max-width: 260px;
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+  border-radius: 2px;
+  border: 1px solid var(--color-border);
+  perspective: 600px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(10, 18, 32, 0.08)),
+    var(--color-bg-alt);
+  box-shadow: 0 18px 40px rgba(10, 18, 32, 0.14);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.portraitFrame::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 2px solid var(--color-accent);
+  border-radius: 2px;
+  pointer-events: none;
+  opacity: 0.25;
+  transition: opacity var(--transition-base), box-shadow var(--transition-base);
+  z-index: 10;
+}
+
+.portraitFrame.hovered::after {
+  opacity: 0.6;
+  box-shadow: 0 0 20px rgba(184, 134, 11, 0.15);
+}
+
+.portraitFrame.hovered {
+  box-shadow: 0 24px 50px rgba(10, 18, 32, 0.2);
+}
+
+/* Layer stack — tilt target */
+.layerStack {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  transition: transform 0.4s cubic-bezier(0.03, 0.98, 0.52, 0.99);
+}
+
+.portraitFrame.hovered .layerStack {
+  transform: rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
+}
+
+/* Image layers */
+.layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  will-change: transform, opacity;
+}
+
+/* Breathe animation — gentle scale pulse */
+@keyframes breathe {
+  0% {
+    transform: scale(1);
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+  92% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.35);
+    opacity: 0;
+  }
+}
+
+/* Drift animation — subtle organic movement */
+@keyframes drift {
+  0%, 100% { translate: 0 0; }
+  25% { translate: 2px -1px; }
+  50% { translate: -1px 2px; }
+  75% { translate: 1px -2px; }
+}
+
+.layer1 {
+  animation: breathe 12s ease-in-out infinite, drift 20s ease-in-out infinite;
+}
+
+.layer2 {
+  animation: breathe 12s ease-in-out infinite, drift 20s ease-in-out infinite;
+  animation-delay: -4s, -7s;
+}
+
+.layer3 {
+  animation: breathe 12s ease-in-out infinite, drift 20s ease-in-out infinite;
+  animation-delay: -8s, -13s;
+}
+
+/* Shine sweep overlay */
+.shineOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.12) 45%,
+    rgba(255, 255, 255, 0.06) 50%,
+    transparent 55%
+  );
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: none;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.identityPlate {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 6;
+  padding: var(--space-lg);
+  background:
+    linear-gradient(180deg, transparent 0%, rgba(8, 15, 28, 0.28) 26%, rgba(8, 15, 28, 0.86) 100%);
+  color: #f7f3e8;
+}
+
+.name,
+.role,
+.location {
+  margin: 0;
+}
+
+.name {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.role {
+  margin-top: var(--space-xs);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: rgba(247, 243, 232, 0.84);
+}
+
+.location {
+  margin-top: var(--space-sm);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(247, 243, 232, 0.7);
+}
+
+.portraitFrame.hovered .shineOverlay {
+  opacity: 1;
+  transform: translateX(100%);
+  transition: transform 0.8s ease, opacity 0.3s ease;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .layer {
+    animation: none !important;
+  }
+
+  .layer1 {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .layer2,
+  .layer3 {
+    opacity: 0;
+  }
+
+  .layerStack {
+    transition: none;
+    transform: none !important;
+  }
+
+  .shineOverlay {
+    display: none;
+  }
+}
+
+/* Responsive sizing */
+@media (max-width: 767px) {
+  .portraitFrame {
+    max-width: min(100%, 320px);
+  }
+}
+
+@media (min-width: 768px) {
+  .portraitFrame {
+    max-width: 300px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .portraitFrame {
+    max-width: 340px;
+  }
+}

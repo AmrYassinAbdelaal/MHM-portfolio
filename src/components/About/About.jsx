@@ -1,6 +1,9 @@
 import { personal, stats } from '../../data/content'
 import SectionHeading from '../ui/SectionHeading'
 import AnimateOnScroll from '../ui/AnimateOnScroll'
+import LivingPortrait from './LivingPortrait'
+import portrait1 from '../../assets/portrait-1.jpeg'
+import portrait2 from '../../assets/portrait-2.jpeg'
 import styles from './About.module.css'
 
 export default function About() {
@@ -12,6 +15,17 @@ export default function About() {
         </AnimateOnScroll>
 
         <div className={styles.grid}>
+          <AnimateOnScroll>
+            <LivingPortrait
+              src1={portrait1}
+              src2={portrait2}
+              alt={personal.name}
+              name={personal.name}
+              title={personal.title}
+              locations={personal.locations}
+            />
+          </AnimateOnScroll>
+
           <AnimateOnScroll>
             <div className={styles.text}>
               <p>{personal.summary}</p>

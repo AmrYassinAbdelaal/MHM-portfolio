@@ -5,11 +5,11 @@ export const personal = {
   email: 'Mohamed_Hassan_Mohamed@hotmail.com',
   phones: ['+201112462854', '+966536835647'],
   locations: ['Cairo, Egypt', 'Madinah, KSA'],
-  summary: `With over eight years of professional experience spanning architecture, BIM coordination, and project management, I specialize in bridging design intent with construction execution. My work centers on multidisciplinary coordination, clash-free model delivery, and standards-driven project workflows — from concept design through fabrication and handover. I have contributed to complex projects across Egypt, Saudi Arabia, and the UAE, consistently applying tools like Revit, Navisworks, and Autodesk Construction Cloud to drive quality and efficiency at every project phase.`,
+  summary: `With over ten years of professional experience spanning architecture, BIM coordination, and project management, I specialize in bridging design intent with construction execution. My work centers on multidisciplinary coordination, clash-free model delivery, and standards-driven project workflows — from concept design through fabrication and handover. I have contributed to complex projects across Egypt, Saudi Arabia, and the UAE, consistently applying tools like Revit, Navisworks, and Autodesk Construction Cloud to drive quality and efficiency at every project phase.`,
 }
 
 export const stats = [
-  { value: '8+', label: 'Years of Experience' },
+  { value: '10+', label: 'Years of Experience' },
   { value: '3', label: 'Countries' },
   { value: '15+', label: 'Projects Delivered' },
   { value: '8', label: 'Professional Roles' },
@@ -168,4 +168,5 @@ export const languages = [
 
 export const footer = {
   brand: 'Precision in coordination. Excellence in delivery.',
+  ownerName: 'AmrYassinAbdelaal',
 }

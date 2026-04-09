@@ -22,8 +22,18 @@
 .content {
   position: relative;
   z-index: 1;
-  text-align: center;
   padding-top: var(--nav-height);
+  padding-bottom: var(--space-3xl);
+}
+
+.layout {
+  display: grid;
+  gap: var(--space-2xl);
+  align-items: center;
+}
+
+.copy {
+  text-align: center;
 }
 
 .accentLine {
@@ -66,4 +76,78 @@
   gap: var(--space-md);
   justify-content: center;
   flex-wrap: wrap;
+}
+
+.portraitShell {
+  display: flex;
+  justify-content: center;
+}
+
+.portraitFrame {
+  position: relative;
+  width: min(72vw, 360px);
+  aspect-ratio: 4 / 5;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background:
+    radial-gradient(circle at top, rgba(184, 134, 11, 0.3), transparent 42%),
+    rgba(255, 255, 255, 0.04);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+}
+
+.portraitFrame::before {
+  content: '';
+  position: absolute;
+  inset: 14px;
+  border: 1px solid rgba(184, 134, 11, 0.45);
+  border-radius: 4px;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.portraitLayer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.portraitBack {
+  transform: scale(1.06) translateX(3%);
+  opacity: 0.34;
+  filter: saturate(0.75);
+}
+
+.portraitFront {
+  z-index: 2;
+}
+
+@media (min-width: 900px) {
+  .layout {
+    grid-template-columns: minmax(0, 1.1fr) minmax(280px, 380px);
+    gap: var(--space-4xl);
+  }
+
+  .copy {
+    text-align: left;
+  }
+
+  .accentLine {
+    margin-left: 0;
+  }
+
+  .tagline {
+    margin-left: 0;
+  }
+
+  .cta {
+    justify-content: flex-start;
+  }
+
+  .portraitShell {
+    justify-content: flex-end;
+  }
 }
