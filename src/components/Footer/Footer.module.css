@@ -44,3 +44,18 @@
   font-size: 0.75rem;
   color: var(--color-dark-text-secondary);
 }
+
+/* ===== Mobile ===== */
+@media (max-width: 480px) {
+  .footer {
+    padding: var(--space-2xl) 0 var(--space-xl);
+  }
+
+  .nav {
+    gap: var(--space-md);
+  }
+
+  .link {
+    font-size: 0.72rem;
+  }
+}

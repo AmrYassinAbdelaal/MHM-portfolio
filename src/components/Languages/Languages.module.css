@@ -53,3 +53,24 @@
 .filled {
   background-color: var(--color-accent);
 }
+
+/* ===== Mobile ===== */
+@media (max-width: 480px) {
+  .grid {
+    gap: var(--space-md);
+  }
+
+  .card {
+    min-width: 0;
+    flex: 1 1 calc(50% - var(--space-md));
+    padding: var(--space-xl) var(--space-lg);
+  }
+
+  .name {
+    font-size: 1rem;
+  }
+
+  .level {
+    font-size: 0.75rem;
+  }
+}

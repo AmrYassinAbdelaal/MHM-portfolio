@@ -10,6 +10,10 @@
   text-align: left;
 }
 
+:global([dir="rtl"]) .left {
+  text-align: right;
+}
+
 .accent {
   display: block;
   width: 40px;

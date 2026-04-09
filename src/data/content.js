@@ -170,3 +170,49 @@ export const footer = {
   brand: 'Precision in coordination. Excellence in delivery.',
   ownerName: 'AmrYassinAbdelaal',
 }
+
+// UI strings for English
+export const ui = {
+  nav: {
+    about: 'About',
+    skills: 'Skills',
+    experience: 'Experience',
+    education: 'Education',
+    contact: 'Contact',
+  },
+  hero: {
+    viewExperience: 'View Experience',
+    contact: 'Contact',
+    downloadCV: 'Download CV ↓',
+  },
+  about: {
+    title: 'About',
+    subtitle: 'Professional Profile',
+  },
+  skills: {
+    title: 'Skills',
+    subtitle: 'Tools & Technologies',
+  },
+  experience: {
+    title: 'Experience',
+    subtitle: 'Professional Timeline',
+    communityTitle: 'Community & Sustainability',
+  },
+  education: {
+    title: 'Education',
+  },
+  languages: {
+    title: 'Languages',
+  },
+  contact: {
+    title: 'Get In Touch',
+    subtitle: 'Open to opportunities across Egypt, KSA, and the UAE',
+    email: 'Email',
+    phone: 'Phone',
+  },
+  footer: {
+    links: ['About', 'Experience', 'Skills', 'Contact'],
+    linkIds: ['about', 'experience', 'skills', 'contact'],
+    rights: 'All rights reserved.',
+  },
+}

@@ -181,3 +181,142 @@
   margin-bottom: var(--space-lg);
   text-align: center;
 }
+
+/* ===== RTL overrides ===== */
+:global([dir="rtl"]) .line {
+  left: auto;
+  right: 20px;
+}
+
+:global([dir="rtl"]) .item {
+  padding-left: 0;
+  padding-right: 52px;
+}
+
+:global([dir="rtl"]) .dot {
+  left: auto;
+  right: 13px;
+}
+
+:global([dir="rtl"]) .bullets li {
+  padding-left: 0;
+  padding-right: var(--space-md);
+}
+
+:global([dir="rtl"]) .bullets li::before {
+  left: auto;
+  right: 0;
+}
+
+@media (min-width: 1024px) {
+  :global([dir="rtl"]) .line {
+    right: 50%;
+    left: auto;
+    transform: translateX(50%);
+  }
+
+  :global([dir="rtl"]) .item {
+    padding-right: 0;
+  }
+
+  :global([dir="rtl"]) .left {
+    padding-left: var(--space-3xl);
+    padding-right: 0;
+    text-align: left;
+  }
+
+  :global([dir="rtl"]) .right {
+    margin-left: 0;
+    margin-right: 50%;
+    padding-right: var(--space-3xl);
+    padding-left: 0;
+    text-align: right;
+  }
+
+  :global([dir="rtl"]) .left .dot {
+    right: auto;
+    left: -8px;
+  }
+
+  :global([dir="rtl"]) .right .dot {
+    left: auto;
+    right: -8px;
+  }
+
+  :global([dir="rtl"]) .left .bullets {
+    direction: ltr;
+  }
+
+  :global([dir="rtl"]) .left .bullets li {
+    padding-right: 0;
+    padding-left: var(--space-md);
+  }
+
+  :global([dir="rtl"]) .left .bullets li::before {
+    right: auto;
+    left: 0;
+  }
+
+  :global([dir="rtl"]) .right .bullets {
+    direction: ltr;
+  }
+
+  :global([dir="rtl"]) .right .bullets li {
+    text-align: right;
+    padding-left: 0;
+    padding-right: var(--space-md);
+  }
+
+  :global([dir="rtl"]) .right .bullets li::before {
+    left: auto;
+    right: 0;
+  }
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 480px) {
+  .item {
+    padding-left: 42px;
+  }
+
+  .line {
+    left: 16px;
+  }
+
+  .dot {
+    left: 9px;
+    width: 14px;
+    height: 14px;
+  }
+
+  .card {
+    padding: var(--space-lg);
+  }
+
+  .role {
+    font-size: 1rem;
+  }
+
+  .company {
+    font-size: 0.88rem;
+  }
+
+  .bullets li {
+    font-size: 0.82rem;
+  }
+
+  :global([dir="rtl"]) .item {
+    padding-right: 42px;
+    padding-left: 0;
+  }
+
+  :global([dir="rtl"]) .line {
+    right: 16px;
+    left: auto;
+  }
+
+  :global([dir="rtl"]) .dot {
+    right: 9px;
+    left: auto;
+  }
+}

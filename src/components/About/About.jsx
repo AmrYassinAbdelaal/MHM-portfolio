@@ -1,4 +1,4 @@
-import { personal, stats } from '../../data/content'
+import { useLanguage } from '../../context/LanguageContext'
 import SectionHeading from '../ui/SectionHeading'
 import AnimateOnScroll from '../ui/AnimateOnScroll'
 import LivingPortrait from './LivingPortrait'
@@ -7,11 +7,14 @@ import portrait2 from '../../assets/portrait-2.jpeg'
 import styles from './About.module.css'
 
 export default function About() {
+  const { content } = useLanguage()
+  const { personal, stats, ui } = content
+
   return (
     <section className="section" id="about">
       <div className="container">
         <AnimateOnScroll>
-          <SectionHeading title="About" subtitle="Professional Profile" />
+          <SectionHeading title={ui.about.title} subtitle={ui.about.subtitle} />
         </AnimateOnScroll>
 
         <div className={styles.grid}>

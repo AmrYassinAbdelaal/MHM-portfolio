@@ -1,10 +1,13 @@
-import { personal } from '../../data/content'
+import { useLanguage } from '../../context/LanguageContext'
 import Button from '../ui/Button'
 import portrait1 from '../../assets/portrait-1.jpeg'
 import portrait2 from '../../assets/portrait-2.jpeg'
 import styles from './Hero.module.css'
 
 export default function Hero() {
+  const { content } = useLanguage()
+  const { personal, ui } = content
+
   const scrollTo = (e, id) => {
     e.preventDefault()
     const el = document.getElementById(id)
@@ -26,13 +29,13 @@ export default function Hero() {
             <p className={styles.tagline}>{personal.tagline}</p>
             <div className={styles.cta}>
               <Button variant="primary" href="#experience" onClick={e => scrollTo(e, 'experience')}>
-                View Experience
+                {ui.hero.viewExperience}
               </Button>
               <Button variant="outlineLight" href="#contact" onClick={e => scrollTo(e, 'contact')}>
-                Contact
+                {ui.hero.contact}
               </Button>
               <Button variant="outlineLight" href="/resume.pdf" onClick={undefined}>
-                Download CV ↓
+                {ui.hero.downloadCV}
               </Button>
             </div>
           </div>

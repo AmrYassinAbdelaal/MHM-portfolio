@@ -45,18 +45,46 @@
 }
 
 .name {
-  font-size: clamp(2.2rem, 5vw, 4rem);
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  font-family: var(--font-heading);
+  font-size: clamp(2.6rem, 6vw, 4.5rem);
+  font-weight: 600;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   line-height: 1.1;
   margin-bottom: var(--space-md);
+  animation: nameGlow 4s ease-in-out infinite alternate;
+}
+
+@keyframes nameGlow {
+  0% {
+    text-shadow:
+      0 0 6px rgba(184, 134, 11, 0.2),
+      0 0 16px rgba(184, 134, 11, 0.1),
+      0 0 32px rgba(184, 134, 11, 0.05);
+    opacity: 0.85;
+  }
+  50% {
+    text-shadow:
+      0 0 12px rgba(184, 134, 11, 0.45),
+      0 0 32px rgba(184, 134, 11, 0.3),
+      0 0 64px rgba(184, 134, 11, 0.15),
+      0 0 96px rgba(184, 134, 11, 0.05);
+    opacity: 1;
+  }
+  100% {
+    text-shadow:
+      0 0 6px rgba(184, 134, 11, 0.2),
+      0 0 16px rgba(184, 134, 11, 0.1),
+      0 0 32px rgba(184, 134, 11, 0.05);
+    opacity: 0.85;
+  }
 }
 
 .title {
+  font-family: var(--font-body);
   font-size: clamp(1rem, 2vw, 1.3rem);
   font-weight: 300;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--color-accent);
   margin-bottom: var(--space-xl);
@@ -194,5 +222,57 @@
 
   .portraitShell {
     justify-content: flex-end;
+  }
+
+  :global([dir="rtl"]) .copy {
+    text-align: right;
+  }
+
+  :global([dir="rtl"]) .accentLine {
+    margin-left: auto;
+    margin-right: 0;
+  }
+
+  :global([dir="rtl"]) .tagline {
+    margin-left: auto;
+    margin-right: 0;
+  }
+
+  :global([dir="rtl"]) .cta {
+    justify-content: flex-end;
+  }
+
+  :global([dir="rtl"]) .portraitShell {
+    justify-content: flex-start;
+  }
+}
+
+/* ===== Mobile adjustments ===== */
+@media (max-width: 480px) {
+  .name {
+    font-size: clamp(1.8rem, 8vw, 2.6rem);
+    letter-spacing: 0.06em;
+  }
+
+  .title {
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+  }
+
+  .tagline {
+    font-size: 0.92rem;
+  }
+
+  .cta {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .accentLine {
+    margin-bottom: var(--space-lg);
+  }
+
+  .portraitFrame {
+    width: min(60vw, 260px);
   }
 }

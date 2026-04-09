@@ -1,14 +1,17 @@
-import { education } from '../../data/content'
+import { useLanguage } from '../../context/LanguageContext'
 import SectionHeading from '../ui/SectionHeading'
 import AnimateOnScroll from '../ui/AnimateOnScroll'
 import styles from './Education.module.css'
 
 export default function Education() {
+  const { content } = useLanguage()
+  const { education, ui } = content
+
   return (
     <section className="section section--alt" id="education">
       <div className="container">
         <AnimateOnScroll>
-          <SectionHeading title="Education" />
+          <SectionHeading title={ui.education.title} />
         </AnimateOnScroll>
 
         <div className={styles.grid}>

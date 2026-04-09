@@ -64,3 +64,22 @@
   letter-spacing: 0.05em;
   color: var(--color-text-secondary);
 }
+
+/* ===== Mobile ===== */
+@media (max-width: 480px) {
+  .text p {
+    font-size: 0.95rem;
+  }
+
+  .stat {
+    padding: var(--space-lg) var(--space-md);
+  }
+
+  .statValue {
+    font-size: 1.6rem;
+  }
+
+  .statLabel {
+    font-size: 0.7rem;
+  }
+}

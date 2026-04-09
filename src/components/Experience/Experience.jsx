@@ -1,4 +1,4 @@
-import { experience, extracurricular } from '../../data/content'
+import { useLanguage } from '../../context/LanguageContext'
 import SectionHeading from '../ui/SectionHeading'
 import AnimateOnScroll from '../ui/AnimateOnScroll'
 import styles from './Experience.module.css'
@@ -30,11 +30,14 @@ function TimelineItem({ role, company, project, location, period, description, i
 }
 
 export default function Experience() {
+  const { content } = useLanguage()
+  const { experience, extracurricular, ui } = content
+
   return (
     <section className="section" id="experience">
       <div className="container">
         <AnimateOnScroll>
-          <SectionHeading title="Experience" subtitle="Professional Timeline" />
+          <SectionHeading title={ui.experience.title} subtitle={ui.experience.subtitle} />
         </AnimateOnScroll>
 
         <div className={styles.timeline}>
@@ -46,7 +49,7 @@ export default function Experience() {
 
         <AnimateOnScroll>
           <div className={styles.extra}>
-            <h3 className={styles.extraTitle}>Community & Sustainability</h3>
+            <h3 className={styles.extraTitle}>{ui.experience.communityTitle}</h3>
             <div className={styles.card}>
               <span className={styles.period}>{extracurricular.period}</span>
               <h3 className={styles.role}>{extracurricular.role}</h3>

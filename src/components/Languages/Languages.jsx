@@ -1,14 +1,17 @@
-import { languages } from '../../data/content'
+import { useLanguage } from '../../context/LanguageContext'
 import SectionHeading from '../ui/SectionHeading'
 import AnimateOnScroll from '../ui/AnimateOnScroll'
 import styles from './Languages.module.css'
 
 export default function Languages() {
+  const { content } = useLanguage()
+  const { languages, ui } = content
+
   return (
     <section className="section" id="languages">
       <div className="container">
         <AnimateOnScroll>
-          <SectionHeading title="Languages" />
+          <SectionHeading title={ui.languages.title} />
         </AnimateOnScroll>
 
         <div className={styles.grid}>
