@@ -1,0 +1,48 @@
+.heading {
+  margin-bottom: var(--space-3xl);
+}
+
+.center {
+  text-align: center;
+}
+
+.left {
+  text-align: left;
+}
+
+.accent {
+  display: block;
+  width: 40px;
+  height: 3px;
+  background-color: var(--color-accent);
+  margin-bottom: var(--space-lg);
+}
+
+.center .accent {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+  line-height: 1.2;
+}
+
+.light .title {
+  color: var(--color-dark-text);
+}
+
+.subtitle {
+  margin-top: var(--space-sm);
+  font-size: 1.05rem;
+  color: var(--color-text-secondary);
+  font-weight: 400;
+}
+
+.light .subtitle {
+  color: var(--color-dark-text-secondary);
+}

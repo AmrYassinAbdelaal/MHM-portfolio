@@ -1,0 +1,37 @@
+import { personal } from '../../data/content'
+import Button from '../ui/Button'
+import styles from './Hero.module.css'
+
+export default function Hero() {
+  const scrollTo = (e, id) => {
+    e.preventDefault()
+    const el = document.getElementById(id)
+    if (el) {
+      const top = el.getBoundingClientRect().top + window.scrollY - 72
+      window.scrollTo({ top, behavior: 'smooth' })
+    }
+  }
+
+  return (
+    <section className={styles.hero} id="hero">
+      <div className={styles.grid} />
+      <div className={`container ${styles.content}`}>
+        <span className={styles.accentLine} />
+        <h1 className={styles.name}>{personal.name}</h1>
+        <p className={styles.title}>{personal.title}</p>
+        <p className={styles.tagline}>{personal.tagline}</p>
+        <div className={styles.cta}>
+          <Button variant="primary" href="#experience" onClick={e => scrollTo(e, 'experience')}>
+            View Experience
+          </Button>
+          <Button variant="outlineLight" href="#contact" onClick={e => scrollTo(e, 'contact')}>
+            Contact
+          </Button>
+          <Button variant="outlineLight" href="/resume.pdf" onClick={undefined}>
+            Download CV ↓
+          </Button>
+        </div>
+      </div>
+    </section>
+  )
+}
