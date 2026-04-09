@@ -91,29 +91,27 @@ export default function Navbar() {
           </svg>
         </a>
 
-        <div className={styles.navRight}>
-          <ul className={`${styles.links} ${menuOpen ? styles.open : ''}`}>
-            {navLinks.map(link => (
-              <li key={link.id}>
-                <a
-                  href={`#${link.id}`}
-                  className={`${styles.link} ${activeSection === link.id ? styles.active : ''}`}
-                  onClick={e => scrollTo(e, link.id)}
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
+        <ul className={`${styles.links} ${menuOpen ? styles.open : ''}`}>
+          {navLinks.map(link => (
+            <li key={link.id}>
+              <a
+                href={`#${link.id}`}
+                className={`${styles.link} ${activeSection === link.id ? styles.active : ''}`}
+                onClick={e => scrollTo(e, link.id)}
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
 
-          <button
-            className={styles.langToggle}
-            onClick={() => setLang(lang === 'en' ? 'ar' : 'en')}
-            aria-label="Toggle language"
-          >
-            {lang === 'en' ? 'عربي' : 'EN'}
-          </button>
-        </div>
+        <button
+          className={styles.langToggle}
+          onClick={() => setLang(lang === 'en' ? 'ar' : 'en')}
+          aria-label="Toggle language"
+        >
+          {lang === 'en' ? 'عربي' : 'EN'}
+        </button>
 
         <button
           className={`${styles.hamburger} ${menuOpen ? styles.hamburgerOpen : ''}`}
