@@ -4,7 +4,7 @@ export const personal = {
   tagline: 'Delivering precision-driven BIM coordination and architectural solutions across large-scale construction projects in the Middle East and North Africa.',
   email: 'Mohamed_Hassan_Mohamed@hotmail.com',
   phones: ['+201112462854', '+966536835647'],
-  locations: ['Cairo, Egypt', 'Madinah, KSA'],
+  locations: ['Cairo, Egypt', 'Jeddah, KSA'],
   summary: `With over ten years of professional experience spanning architecture, BIM coordination, and project management, I specialize in bridging design intent with construction execution. My work centers on multidisciplinary coordination, clash-free model delivery, and standards-driven project workflows — from concept design through fabrication and handover. I have contributed to complex projects across Egypt, Saudi Arabia, and the UAE, consistently applying tools like Revit, Navisworks, and Autodesk Construction Cloud to drive quality and efficiency at every project phase.`,
 }
 
