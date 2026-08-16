@@ -51,3 +51,4 @@ The included `netlify.toml` handles build configuration automatically.
 - Vite 6
 - CSS Modules
 - Zero external UI dependencies
+
